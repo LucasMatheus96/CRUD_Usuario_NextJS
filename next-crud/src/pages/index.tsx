@@ -6,12 +6,21 @@ import Cliente from '../core/Cliente'
 
 const inter = Inter({ subsets: ['latin'] })
 
-const clientes = [
-  new Cliente('Ana', 23, '1'),
-  new Cliente('Bia', 43, '2'),
-]
 
 export default function Home() {
+
+  const clientes = [
+    new Cliente('Ana', 23, '1'),
+    new Cliente('Bia', 43, '2'),
+  ]
+
+  
+  const clienteSelecionado = (cliente: Cliente) => {
+    console.log(cliente.nome)
+  }
+  const clienteExcluido = (cliente: Cliente) => {
+    console.log(cliente.nome)
+  }
   return (
     <div className={`
     flex h-screen justify-center items-center
@@ -21,7 +30,7 @@ export default function Home() {
     }>
 
       <Layout titulo="Cadastro Simples">
-        <Tabela clientes={clientes}></Tabela>
+        <Tabela clientes={clientes} clienteSelecionado={clienteSelecionado} clienteExcluido={clienteExcluido}></Tabela>
       </Layout>
       
     </div>
